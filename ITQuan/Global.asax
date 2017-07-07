@@ -1,1 +1,1 @@
-﻿<%@ Application Inherits="ITQuan.Global" %>
+﻿<%@ Application CodeBehind="Global.asax.cs" Inherits="ITQuan.Global" Language="C#"%>

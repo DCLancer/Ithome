@@ -10,6 +10,12 @@ namespace ITQuan.Models
         {
         }
 
+        public int ArticleId{
+            get;
+            set;
+        }
+
+
         /// <summary>
         /// 
         /// </summary>

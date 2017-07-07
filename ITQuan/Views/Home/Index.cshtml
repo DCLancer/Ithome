@@ -1,4 +1,10 @@
-﻿<h2>Welcome to ASP.NET MVC @ViewData["Version"] on @ViewData["Runtime"]!</h2>
+﻿@model List<ITQuan.Models.Article>
 <p>
     
 </p>
+<div>
+    @foreach(ITQuan.Models.Article a in Model)
+	{
+	    <p><a href="@a.Link">@a.Title</a></p>
+	}
+</div>

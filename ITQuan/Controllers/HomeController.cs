@@ -9,20 +9,14 @@ namespace ITQuan.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        static string _URL = "http://quan.ithome.com/thread/";
+
+
+        public ActionResult Index(int id=1)
         {
-            var mvcName = typeof(Controller).Assembly.GetName();
-            var isMono = Type.GetType("Mono.Runtime") != null;
-
-            ViewData["Version"] = mvcName.Version.Major + "." + mvcName.Version.Minor;
-            ViewData["Runtime"] = isMono ? "Mono" : ".NET";
-
-            //ViewData["Html"] 
-            ArticleHelp.GetSingleArticle(
-                ArticleHelp.GetArticleListNodeFromHtml(
-                    ArticleHelp.GetHtml("http://quan.ithome.com")).ChildNodes.Where(a => !a.Name.Equals("#text")).FirstOrDefault());
-
-            return View();
+            if (id <= 0)
+                id = 1;
+            return View(ArticleHelp.GetArticleList(string.Concat(_URL, id)));
         }
     }
 }
